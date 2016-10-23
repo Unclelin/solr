@@ -1,4 +1,4 @@
-# Solr
+# Solr 5.0 & Jeesite
 
 ## 简介
 
@@ -21,7 +21,7 @@
 
 ## 版权声明
 
-继承Jeesite遵循的协议 [Apache License 2.0](http://www.apache.org/licenses/LICENSE-2.0) 协议，请严格遵照协议内容：
+继承Jeesite遵循的协议 [Apache License 2.0](http://www.apache.org/licenses/LICENSE-2.0) 协议，请严格遵照协议内容。
 
 
 
