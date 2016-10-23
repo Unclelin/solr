@@ -16,10 +16,8 @@
 
 ## 关于问题
 
-如有关于solr整合问题欢迎指正。
-联系方式如下：
-Email: linjianmao@gmail.com
-QQ   : 578169426
+1. 如有关于solr整合问题欢迎指正。
+2. 联系方式：Email: linjianmao@gmail.com   QQ : 578169426
 
 
 ## 版权声明
