@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<schema name="example" version="1.5">
+  <field name="_version_" type="long" indexed="true" stored="true"/>	
+	<uniqueKey>articleId</uniqueKey>	
+  <field name="articleId" type="string" indexed="true" stored="true" required="true" multiValued="false" />
+  
+	<field name="title" type="text_general" indexed="true" stored="true" required="true" multiValued="false" />
+	
+	<!--
+	<field name="categoryId" type="string" indexed="false" stored="true" required="false" multiValued="false" />
+	<field name="link" type="string" indexed="true" stored="true" required="false" multiValued="false" />
+	<field name="color" type="string" indexed="true" stored="true" required="false" multiValued="false" />
+	<field name="image" type="string" indexed="true" stored="true" required="false" multiValued="false" />
+	<field name="posid" type="string" indexed="true" stored="true" required="false" multiValued="false" />
+	<field name="viewConfig" type="string" indexed="true" stored="true" required="false" multiValued="false" />
+	<field name="createBy" type="string" indexed="true" stored="true" required="false" multiValued="false" />
+	<field name="createDate" type="string" indexed="true" stored="true" required="false" multiValued="false" />
+	<field name="updateBy" type="string" indexed="true" stored="true" required="false" multiValued="false" />
+	<field name="updateDate" type="date" indexed="true" stored="true" required="false" multiValued="false" />
+	<field name="weightDate" type="date" indexed="true" stored="true" required="false" multiValued="false" />
+	<field name="delFlag" type="int" indexed="true" stored="true" required="false" multiValued="false" />
+	<field name="remarks" type="string" indexed="true" stored="true" required="false" multiValued="false" />
+	-->
+	<field name="keywords" type="string" indexed="true" stored="true" required="false" multiValued="false" />
+	<field name="description" type="string" indexed="true" stored="true" required="false" multiValued="false" />
+	<field name="weight" type="int" indexed="true" stored="true" required="false" multiValued="false" />	
+	<field name="hits" type="int" indexed="true" stored="true" required="false" multiValued="false" />	
+	
+	
+	<!--catch all field -->
+	<field name="text" stored="false" indexed="true" type="text_general" multiValued="true"/>
+	<copyField dest="text" source="title"/>
+	<copyField dest="text" source="keywords"/>
+	<copyField dest="text" source="description"/>
+
+    <fieldType name="string" class="solr.StrField" sortMissingLast="true" />
+    <fieldType name="boolean" class="solr.BoolField" sortMissingLast="true"/>
+    <fieldType name="int" class="solr.TrieIntField" precisionStep="0" positionIncrementGap="0"/>
+    <fieldType name="float" class="solr.TrieFloatField" precisionStep="0" positionIncrementGap="0"/>
+    <fieldType name="long" class="solr.TrieLongField" precisionStep="0" positionIncrementGap="0"/>
+    <fieldType name="double" class="solr.TrieDoubleField" precisionStep="0" positionIncrementGap="0"/>
+    <fieldType name="date" class="solr.TrieDateField" precisionStep="0" positionIncrementGap="0"/> 
+    <fieldType name="currency" class="solr.CurrencyField" precisionStep="8" defaultCurrency="USD" currencyConfig="currency.xml" />
+	
+    <fieldType name="text_general" class="solr.TextField" positionIncrementGap="100">
+      <analyzer type="index">
+        <tokenizer class="solr.StandardTokenizerFactory"/>
+        <filter class="solr.StopFilterFactory" ignoreCase="true" words="stopwords.txt" />
+        <!-- in this example, we will only use synonyms at query time
+        <filter class="solr.SynonymFilterFactory" synonyms="index_synonyms.txt" ignoreCase="true" expand="false"/>
+        -->
+        <filter class="solr.LowerCaseFilterFactory"/>
+      </analyzer>
+      <analyzer type="query">
+        <tokenizer class="solr.StandardTokenizerFactory"/>
+        <filter class="solr.StopFilterFactory" ignoreCase="true" words="stopwords.txt" />
+        <filter class="solr.SynonymFilterFactory" synonyms="synonyms.txt" ignoreCase="true" expand="true"/>
+        <filter class="solr.LowerCaseFilterFactory"/>
+      </analyzer>
+    </fieldType>
+</schema>
+
