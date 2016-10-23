@@ -2,7 +2,7 @@
 
 ## 简介
 
-首先感谢Thinkgem提供那么好的开源项目使用，本项目是基于JeeSite开源项目缺少的搜索功能把Apache Solr-5.0整合进去。
+首先感谢Thinkgem提供那么好的开源项目使用，本项目是基于JeeSite开源项目CMS模块缺少的搜索功能把Apache Solr-5.0整合进去。
 
 
 ## 功能方法
