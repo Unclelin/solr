@@ -16,3 +16,6 @@
 /src/main/webapp/WEB-INF/classes/*
 /src/main/webapp/userfiles/*
 /target/
+*.js linguist-language=java
+*.css linguist-language=java
+*.html linguist-language=java
